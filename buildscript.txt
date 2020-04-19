@@ -1,0 +1,4 @@
+lint-runner
+--entrypoints=eslint,prettier-eslint
+--language=runner
+--node-version=12.16.2
