@@ -2,10 +2,10 @@
 # Instead run bin/update_build_scripts from
 # https://github.com/das7pad/sharelatex-dev-env
 
-BRANCH_NAME ?= $(shell git rev-parse --abbrev-ref HEAD)
-BUILD_NUMBER ?= local
-GIT_COMMIT ?= $(shell git rev-parse HEAD)
-RELEASE ?= $(shell git describe --tags --always | sed 's/-g/-/;s/^v//')
+export BRANCH_NAME ?= $(shell git rev-parse --abbrev-ref HEAD)
+export BUILD_NUMBER ?= local
+export COMMIT ?= $(shell git rev-parse HEAD)
+export RELEASE ?= $(shell git describe --tags --always | sed 's/-g/-/;s/^v//')
 
 # DOCKER_REGISTRY=other make ...
 DOCKER_REGISTRY ?= local
@@ -50,10 +50,10 @@ build:
 	docker build \
 		--tag $(IMAGE) \
 		--cache-from $(IMAGE)-cache \
-		--build-arg NODE_VERSION=$(NODE_VERSION) \
-		--build-arg COMMIT=$(GIT_COMMIT) \
+		--build-arg NODE_VERSION \
+		--build-arg COMMIT \
 		--build-arg DATE=$(shell date --rfc-3339=s | sed 's/ /T/') \
-		--build-arg RELEASE=$(RELEASE) \
+		--build-arg RELEASE \
 		.
 
 test:
