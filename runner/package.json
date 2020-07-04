@@ -1,6 +1,6 @@
 {
   "name": "lint-runner",
-  "version": "3.0.0-web",
+  "version": "4.0.0-web",
   "license": "AGPL-3.0-or-later",
   "dependencies": {
     "babel-eslint": "^10.1.0",
