@@ -1,4 +1,4 @@
 lint-runner
 --entrypoints=eslint,prettier-eslint
 --language=runner
---node-version=12.18.2
+--node-version=12.18.3
